@@ -39,7 +39,7 @@ Source3:        https://s3.amazonaws.com/amazon-ecs-agent/ecs-agent-v%{bundled_a
 # aarch64 Container agent docker image
 Source4:        https://s3.amazonaws.com/amazon-ecs-agent/ecs-agent-arm64-v%{bundled_agent_version}.tar
 
-BuildRequires:  golang >= 1.7
+#BuildRequires:  golang >= 1.7
 BuildRequires:  systemd
 Requires:       systemd
 Requires:       iptables
@@ -91,7 +91,7 @@ ln -sf %{basename:%{agent_image}} %{_cachedir}/ecs/ecs-agent.tar
 %systemd_post ecs
 
 %postun
-%systemd_postun
+%systemd_postun_with_restart ecs
 
 %changelog
 * Fri Jan 14 2022 Utsa Bhattacharjya <utsa@amazon.com> - 1.58.0-2
