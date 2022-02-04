@@ -16,6 +16,7 @@
 %global _cachedir %{_localstatedir}/cache
 %global bundled_agent_version %{version}
 %global no_exec_perm 644
+%global debug_package %{nil}
 
 %ifarch x86_64
 %global agent_image %{SOURCE3}
